@@ -1,0 +1,32 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "oneirocraft:item/dreamsteel_shovel"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "oneirocraft:trait": 2.0
+      },
+      "model": "oneirocraft:item/silky_dreamsteel_shovel"
+    },
+    {
+      "predicate": {
+        "oneirocraft:trait": 3.0
+      },
+      "model": "oneirocraft:item/lucky_dreamsteel_shovel"
+    },
+    {
+      "predicate": {
+        "oneirocraft:trait": 4.0
+      },
+      "model": "oneirocraft:item/efficient_dreamsteel_shovel"
+    },
+    {
+      "predicate": {
+        "oneirocraft:trait": 6.0
+      },
+      "model": "oneirocraft:item/massive_dreamsteel_shovel"
+    }
+  ]
+}

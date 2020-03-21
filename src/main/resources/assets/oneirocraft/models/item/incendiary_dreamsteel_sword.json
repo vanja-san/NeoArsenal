@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "oneirocraft:item/incendiary_dreamsteel_sword"
+  }
+}

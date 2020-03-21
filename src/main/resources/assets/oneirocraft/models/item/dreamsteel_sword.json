@@ -1,0 +1,32 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "oneirocraft:item/dreamsteel_sword"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "oneirocraft:trait": 1.0
+      },
+      "model": "oneirocraft:item/sharp_dreamsteel_sword"
+    },
+    {
+      "predicate": {
+        "oneirocraft:trait": 2.0
+      },
+      "model": "oneirocraft:item/silky_dreamsteel_sword"
+    },
+    {
+      "predicate": {
+        "oneirocraft:trait": 3.0
+      },
+      "model": "oneirocraft:item/lucky_dreamsteel_sword"
+    },
+    {
+      "predicate": {
+        "oneirocraft:trait": 5.0
+      },
+      "model": "oneirocraft:item/incendiary_dreamsteel_sword"
+    }
+  ]
+}
