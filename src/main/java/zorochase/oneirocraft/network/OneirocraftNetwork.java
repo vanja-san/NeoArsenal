@@ -13,7 +13,7 @@ public class OneirocraftNetwork {
     public static int nextID() { return ID++; }
 
     public static void registerMessages() {
-        INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(Oneirocraft.MOD_ID, "captest_network"), () -> "1.0", s -> true, s -> true);
+        INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(Oneirocraft.MOD_ID, "oneirocraft_network"), () -> "1.0", s -> true, s -> true);
         INSTANCE.registerMessage(nextID(), SyncTraitsPacket.class, SyncTraitsPacket::toBytes, SyncTraitsPacket::new, SyncTraitsPacket::handle);
     }
 
