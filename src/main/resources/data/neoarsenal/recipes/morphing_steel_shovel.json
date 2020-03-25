@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "D",
+      "R",
+      "R"
+  ],
+  "key": {
+    "D": {
+      "item": "neoarsenal:steel_ingot"
+    },
+    "R": {
+      "item": "neoarsenal:steel_rod"
+    }
+  },
+  "result": {
+    "item": "neoarsenal:morphing_steel_shovel"
+  }
+}

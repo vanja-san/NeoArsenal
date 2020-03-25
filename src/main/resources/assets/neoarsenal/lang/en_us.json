@@ -1,0 +1,16 @@
+{
+  "key.categories.neoarsenal": "NeoArsenal",
+  "neoarsenal.key.cycleTraits": "Cycle Traits",
+  "itemGroup.NeoArsenal": "NeoArsenal",
+
+  "item.neoarsenal.upgrade_slip": "Upgrade Slip",
+  "item.neoarsenal.fabricator": "Fabricator",
+  "item.neoarsenal.steel_ingot": "Steel Ingot",
+  "item.neoarsenal.steel_nugget": "Steel Nugget",
+  "item.neoarsenal.steel_rod": "Steel Rod",
+  "item.neoarsenal.energetic_berries": "Energetic Berries",
+  "item.neoarsenal.morphing_steel_sword": "Morphing Steel Blade",
+  "item.neoarsenal.morphing_steel_pickaxe": "Morphing Steel Pickaxe",
+  "item.neoarsenal.morphing_steel_axe": "Morphing Steel Axe",
+  "item.neoarsenal.morphing_steel_shovel": "Morphing Steel Shovel"
+}

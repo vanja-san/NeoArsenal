@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P",
+    "F",
+    "D"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "F": {
+      "item": "neoarsenal:fabricator"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "neoarsenal:upgrade_slip"
+  }
+}

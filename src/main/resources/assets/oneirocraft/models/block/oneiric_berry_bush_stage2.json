@@ -1,6 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "oneirocraft:block/oneiric_berry_bush_stage2"
-  }
-}

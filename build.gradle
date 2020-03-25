@@ -13,9 +13,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0'
-group = 'zorochase.oneirocraft' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'Oneirocraft'
+version = '1.0.0'
+group = 'zorochase.neoarsenal' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'NeoArsenal'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -43,7 +43,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                oneirocraft {
+                neoarsenal {
                     source sourceSets.main
                 }
             }
@@ -59,7 +59,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                oneirocraft {
+                neoarsenal {
                     source sourceSets.main
                 }
             }
@@ -74,10 +74,10 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'oneirocraft', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'neoarsenal', '--all', '--output', file('src/generated/resources/')
 
             mods {
-                oneirocraft {
+                neoarsenal {
                     source sourceSets.main
                 }
             }
@@ -115,7 +115,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "oneirocraft",
+            "Specification-Title": "neoarsenal",
             "Specification-Vendor": "Zorochase",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
