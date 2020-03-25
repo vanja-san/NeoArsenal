@@ -1,8 +1,7 @@
 # NeoArsenal
 
 NeoArsenal is a HEAVILY WIP mod, adding trait-swapping tools, Forge Energy-based machinery and other utilities.
-Not all features are implemented yet, and the mod is not currently recommended for a survival playthrough.
-Check out the mod's Curseforge page: https://www.curseforge.com/minecraft/mc-mods/neoarsenal
+Not all features are implemented yet. Check out the mod's Curseforge page: https://www.curseforge.com/minecraft/mc-mods/neoarsenal
 
 # Permissions
 
