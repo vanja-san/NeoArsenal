@@ -1,4 +1,4 @@
-# NeoArsenal
+# NeoArsenal [![](https://cf.way2muchnoise.eu/versions/neoarsenal.svg)](https://www.curseforge.com/minecraft/mc-mods/neoarsenal/) [![](http://cf.way2muchnoise.eu/short_neoarsenal_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/neoarsenal/files)
 
 NeoArsenal is a HEAVILY WIP mod, adding trait-swapping tools, Forge Energy-based machinery and other utilities.
 Not all features are implemented yet. Check out the mod's Curseforge page: https://www.curseforge.com/minecraft/mc-mods/neoarsenal
