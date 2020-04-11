@@ -24,11 +24,6 @@ New to NeoArsenal version 1.1.0 are the *Incendiary Eye* and *Portable Charger*.
 
 ![Portable Charger charging](https://i.imgur.com/wWDmEKU.png)
 
-## Possible features for v1.2
-Note: these are *possible* additions, not *definitive* additions. What you see listed is subject to change.
- - Neo armor set, with traits that apply enchantments, status effects, etc.
- - Neo Hoe, Bow and Crossbow.
-
 ## Permissions & licensing
 You have permission to:
 
