@@ -1,4 +1,6 @@
 # NeoArsenal [![](http://cf.way2muchnoise.eu/versions/neoarsenal.svg)](https://www.curseforge.com/minecraft/mc-mods/neoarsenal) [![](http://cf.way2muchnoise.eu/full_368891_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/neoarsenal/files)
+[Curseforge Page
+](https://www.curseforge.com/minecraft/mc-mods/neoarsenal)
 NeoArsenal is a mod that adds a new FE-powered toolset made from a new material: *Neo*.
 *Neo* is a strange, rare, almost clay-like material found deep in the Nether (Y<64). It spawns in small clusters of ore. Neo Ore must be mined with a tier 3 pickaxe (diamond or similar). When mined, 1-3 Neo Chunks will be dropped with a little experience.
 ![Neo Ore found in the Nether](https://i.imgur.com/9YelukX.png)
