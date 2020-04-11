@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " NN",
+    "NPN",
+    "NN "
+  ],
+  "key": {
+    "N": {
+      "item": "neoarsenal:neo_bar"
+    },
+    "P": {
+      "item": "neoarsenal:processor"
+    }
+  },
+  "result": {
+    "item": "neoarsenal:tool_core"
+  }
+}

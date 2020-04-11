@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "neoarsenal:neo_bar"
+    }
+  ],
+  "result": {
+    "item": "neoarsenal:neo_chunk",
+    "count": 2
+  }
+}

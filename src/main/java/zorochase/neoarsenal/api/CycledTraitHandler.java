@@ -4,9 +4,10 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraftforge.common.util.Constants;
-import zorochase.neoarsenal.item.UpgradeSlipItem;
 
 import java.util.Set;
+
+import static zorochase.neoarsenal.api.NeoArsenalTraits.*;
 
 /**
  * This is one implementation of IItemTraitHandler. It cycles through
@@ -17,22 +18,14 @@ import java.util.Set;
  */
 public class CycledTraitHandler implements IItemTraitHandler {
 
-    public final String NONE = "None"; // Used to indicate when no trait is applied
-    public final String DEADLY = "Deadly";
-    public final String SILKY = "Silky";
-    public final String LUCKY = "Lucky";
-    public final String INCENDIARY = "Incendiary";
-    public final String EFFICIENT = "Efficient";
-    public final String MASSIVE = "Massive";
-
-    public final String TRAITS_LIST = "CycledTraits";
-    public final String ACTIVE_TRAIT = "ActiveTrait";
-    public final String COOLDOWN = "Cooldown";
+    private final String TRAITS_LIST = "CycledTraits";
+    private final String ACTIVE_TRAIT_TAG = "ActiveTrait";
+    private final String COOLDOWN_TAG = "Cooldown";
 
     @Override
     public boolean hasTraits(ItemStack stack) {
         if (stack.hasTag()) {
-            return stack.getTag().contains(TRAITS_LIST, Constants.NBT.TAG_COMPOUND) && stack.getTag().contains(ACTIVE_TRAIT, Constants.NBT.TAG_INT);
+            return stack.getTag().contains(TRAITS_LIST, Constants.NBT.TAG_COMPOUND) && stack.getTag().contains(ACTIVE_TRAIT_TAG, Constants.NBT.TAG_INT);
         }
         return false;
     }
@@ -43,7 +36,7 @@ public class CycledTraitHandler implements IItemTraitHandler {
     }
 
     public int getActiveTraitIndex(ItemStack stack) {
-        return stack.getOrCreateTag().getInt(ACTIVE_TRAIT);
+        return stack.getOrCreateTag().getInt(ACTIVE_TRAIT_TAG);
     }
 
     public String getActiveTraitIdentifier(ItemStack stack) {
@@ -51,11 +44,16 @@ public class CycledTraitHandler implements IItemTraitHandler {
         for (String key : getTraitsTag(stack).keySet()) {
             if (getTraitsTag(stack).getInt(key) == activeIndex) return key;
         }
-        return NONE;
+        return NONE.getIdentifier();
     }
 
     public int getCooldown(ItemStack stack) {
-        return stack.getOrCreateTag().getInt(COOLDOWN);
+        return getCooldown(stack, COOLDOWN_TAG);
+    }
+
+    // For items that have more than one cooldown to handle
+    public int getCooldown(ItemStack stack, String tagKey) {
+        return stack.getOrCreateTag().getInt(tagKey);
     }
 
     @Override
@@ -73,7 +71,7 @@ public class CycledTraitHandler implements IItemTraitHandler {
     }
 
     public void setActiveTraitIndex(ItemStack stack, int index) {
-        stack.getOrCreateTag().putInt(ACTIVE_TRAIT, index);
+        stack.getOrCreateTag().putInt(ACTIVE_TRAIT_TAG, index);
     }
 
     public void setActiveTraitIndex(ItemStack stack, String identifier) {
@@ -88,97 +86,70 @@ public class CycledTraitHandler implements IItemTraitHandler {
     }
 
     public void setCooldown(ItemStack stack, int time) {
-        stack.getOrCreateTag().putInt(COOLDOWN, Math.max(0, time));
+        setCooldown(stack, time, COOLDOWN_TAG);
+    }
+
+    // For items that have more than one cooldown to handle
+    public void setCooldown(ItemStack stack, int time, String tagKey) {
+        stack.getOrCreateTag().putInt(tagKey, Math.max(0, time));
     }
 
     @Override
     public void initialize(ItemStack stack) {
-        addTrait(stack, NONE);
+        addTrait(stack, NONE.getIdentifier());
         setActiveTraitIndex(stack, 0);
         setCooldown(stack, 0);
     }
 
     @Override
     public void initialize(ItemStack stack, Set<String> identifiers, boolean withDefault) {
-        if (withDefault) addTrait(stack, NONE);
+        if (withDefault) addTrait(stack, NONE.getIdentifier());
         addAll(stack, identifiers);
-        setActiveTraitIndex(stack,0);
+        setActiveTraitIndex(stack, 0);
         setCooldown(stack, 0);
     }
 
     public float identifierAsFloat(ItemStack stack) {
-        switch (getActiveTraitIdentifier(stack)) {
-            case DEADLY:
-                return 1.0F;
-            case SILKY:
-                return 2.0F;
-            case LUCKY:
-                return 3.0F;
-            case EFFICIENT:
-                return 4.0F;
-            case INCENDIARY:
-                return 5.0F;
-            case MASSIVE:
-                return 6.0F;
-            default:
-                return 0.0F;
-        }
+        String identifier = getActiveTraitIdentifier(stack);
+        return (float) NeoArsenalTraits.valueOf(identifier.toUpperCase()).ordinal();
     }
 
     public void setEnchantmentsForTrait(ItemStack stack) {
         Item item = stack.getItem();
-        if (item instanceof UpgradeSlipItem) return;
-
         stack.getEnchantmentTagList().clear();
-        switch(getActiveTraitIdentifier(stack)) {
-            case DEADLY: {
-                stack.addEnchantment(Enchantments.SHARPNESS, 6);
-                stack.addEnchantment(Enchantments.KNOCKBACK, 3);
-                if (item instanceof SwordItem) stack.addEnchantment(Enchantments.SWEEPING, 4);
-                break;
-            }
-            case SILKY: {
-                stack.addEnchantment(Enchantments.SILK_TOUCH, 1);
-                break;
-            }
-            case LUCKY: {
-                if (item instanceof SwordItem || item instanceof AxeItem) stack.addEnchantment(Enchantments.LOOTING, 4);
-                else stack.addEnchantment(Enchantments.FORTUNE, 3);
-                break;
-            }
-            case INCENDIARY: {
-                stack.addEnchantment(Enchantments.FIRE_ASPECT, 3);
-                break;
-            }
-            case EFFICIENT: {
-                stack.addEnchantment(Enchantments.EFFICIENCY, 6);
-                break;
-            }
-            case MASSIVE: {
-                stack.addEnchantment(Enchantments.KNOCKBACK, 2);
-            }
+        String identifier = getActiveTraitIdentifier(stack);
+
+        if (identifier.equals(DEADLY.getIdentifier())) {
+            stack.addEnchantment(Enchantments.SHARPNESS, 6);
+            stack.addEnchantment(Enchantments.KNOCKBACK, 3);
+            if (item instanceof SwordItem) stack.addEnchantment(Enchantments.SWEEPING, 4);
+        } else if (identifier.equals(SILKY.getIdentifier())) {
+            stack.addEnchantment(Enchantments.SILK_TOUCH, 1);
+        } else if (identifier.equals(LUCKY.getIdentifier())) {
+            if (item instanceof SwordItem || item instanceof AxeItem) stack.addEnchantment(Enchantments.LOOTING, 4);
+            else stack.addEnchantment(Enchantments.FORTUNE, 3);
+        } else if (identifier.equals(INCENDIARY.getIdentifier())) {
+            stack.addEnchantment(Enchantments.FIRE_ASPECT, 3);
+        } else if (identifier.equals(EFFICIENT.getIdentifier())) {
+            stack.addEnchantment(Enchantments.EFFICIENCY, 6);
+        } else if (identifier.equals(MASSIVE.getIdentifier())) {
+            stack.addEnchantment(Enchantments.KNOCKBACK, 2);
         }
     }
 
     public boolean toolSupportsTrait(ItemStack stack, String identifier) {
         Item tool = stack.getItem();
 
-        switch(identifier) {
-            case INCENDIARY:
-            case DEADLY: {
-                return tool instanceof SwordItem || tool instanceof AxeItem;
-            }
-            case LUCKY:
-            case SILKY: {
-                return tool instanceof SwordItem || tool instanceof AxeItem || tool instanceof PickaxeItem || tool instanceof ShovelItem;
-            }
-            case EFFICIENT: {
-                return tool instanceof PickaxeItem || tool instanceof ShovelItem || tool instanceof AxeItem;
-            }
-            case MASSIVE: {
-                return tool instanceof PickaxeItem || tool instanceof ShovelItem;
-            }
-            default: return false;
+        if (identifier.equals(INCENDIARY.getIdentifier()) || identifier.equals(DEADLY.getIdentifier())) {
+            return (tool instanceof SwordItem || tool instanceof AxeItem);
+        } else if (identifier.equals(LUCKY.getIdentifier()) || identifier.equals(SILKY.getIdentifier())) {
+            return (tool instanceof SwordItem || tool instanceof AxeItem || tool instanceof PickaxeItem || tool instanceof ShovelItem);
+        } else if (identifier.equals(EFFICIENT.getIdentifier())) {
+            return (tool instanceof PickaxeItem || tool instanceof ShovelItem || tool instanceof AxeItem);
+        } else if (identifier.equals(MASSIVE.getIdentifier())) {
+            return (tool instanceof PickaxeItem || tool instanceof ShovelItem);
+        } else {
+            return false;
         }
     }
 }

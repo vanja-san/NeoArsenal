@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "neoarsenal:blank_sheet"
+    }
+  ],
+  "result": {
+    "item": "neoarsenal:blank_slip",
+    "count": 4
+  }
+}

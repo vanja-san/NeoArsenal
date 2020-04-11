@@ -1,0 +1,103 @@
+{
+  "cycle_trait": {
+    "category": "player",
+    "subtitle": "neoarsenal.subtitle.cycle_trait",
+    "sounds": [
+      {
+      "type": "event",
+      "name": "minecraft:block.bell.resonate"
+      }
+    ]
+  },
+  "cycle_mode": {
+    "category": "player",
+    "subtitle": "neoarsenal.subtitle.cycle_mode",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "minecraft:entity.experience_orb.pickup"
+      }
+    ]
+  },
+  "cycle_denied": {
+    "category": "player",
+    "subtitle": "neoarsenal.subtitle.cycle_denied",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "minecraft:block.dispenser.fail"
+      }
+    ]
+  },
+  "add_trait": {
+    "category": "player",
+    "subtitle": "neoarsenal.subtitle.add_trait",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "minecraft:entity.villager.work_toolsmith"
+      }
+    ]
+  },
+  "add_trait_denied": {
+    "category": "player",
+    "subtitle": "neoarsenal.subtitle.add_trait_denied",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "minecraft:entity.villager.no"
+      }
+    ]
+  },
+  "compacted_neo_step": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "neoarsenal:compacted_neo_step1",
+      "neoarsenal:compacted_neo_step2",
+      "neoarsenal:compacted_neo_step3",
+      "neoarsenal:compacted_neo_step4",
+      "neoarsenal:compacted_neo_step5",
+      "neoarsenal:compacted_neo_step6"
+    ]
+  },
+  "compacted_neo_break": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      {
+      "type": "event",
+      "name": "neoarsenal:compacted_neo_step"
+      }
+    ]
+  },
+  "compacted_neo_place": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "neoarsenal:compacted_neo_break"
+      }
+    ]
+  },
+  "compacted_neo_hit": {
+    "category": "block",
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "neoarsenal:compacted_neo_step"
+      }
+    ]
+  },
+  "compacted_neo_fall": {
+    "category": "block",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "neoarsenal:compacted_neo_step"
+      }
+    ]
+  }
+}

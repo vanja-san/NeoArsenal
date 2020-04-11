@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "neoarsenal:item/portable_charger"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "neoarsenal:trait": 7.0
+      },
+      "model": "neoarsenal:item/portable_charger_burning"
+    },
+    {
+      "predicate": {
+        "neoarsenal:trait": 8.0
+      },
+      "model": "neoarsenal:item/portable_charger_charging"
+    }
+  ]
+}

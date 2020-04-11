@@ -7,10 +7,11 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
+import zorochase.neoarsenal.api.CycledTraitHandler;
 
-/*
- * Methods for dealing with ITextComponents
- */
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class LoreHelper {
 
     public static ITextComponent loreString(String text) {
@@ -22,28 +23,15 @@ public class LoreHelper {
     }
 
     public static ITextComponent loreInt(int value) {
-        return new TranslationTextComponent(String.valueOf(value));
+        return new TranslationTextComponent(NumberFormat.getNumberInstance(Locale.US).format(value));
     }
 
     public static ITextComponent loreInt(int value, TextFormatting... styles) {
         return loreInt(value).applyTextStyles(styles);
     }
 
-    public static ITextComponent loreInt(int value, int... values) {
-        TextFormatting color = TextFormatting.WHITE;
-        TextFormatting[] colors = new TextFormatting[]{TextFormatting.RED, TextFormatting.GOLD, TextFormatting.YELLOW, TextFormatting.GREEN};
-        for (int i = 0; i < values.length; i++) {
-            if (value >= values[i]) color = colors[i];
-        }
-        return loreInt(value).applyTextStyle(color);
-    }
-
     public static ITextComponent newLine() {
         return new TranslationTextComponent(" ");
-    }
-
-    public static ITextComponent shiftForInfo() {
-        return loreString("LSHIFT", TextFormatting.AQUA).appendSibling(loreString(" -> more info", TextFormatting.GRAY));
     }
 
     public static ITextComponent chargeRatio(ItemStack stack) {
@@ -57,5 +45,9 @@ public class LoreHelper {
                             .appendSibling(loreString(" FE", TextFormatting.GRAY)));
         }
         return loreString("");
+    }
+
+    public static ITextComponent activeTrait(ItemStack stack, CycledTraitHandler cycledTraitHandler, String flavor) {
+        return loreString(flavor).appendSibling(loreString(cycledTraitHandler.getActiveTraitIdentifier(stack), TextFormatting.AQUA));
     }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I",
+    "T",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "T": {
+      "item": "neoarsenal:tool_core"
+    }
+  },
+  "result": {
+    "item": "neoarsenal:portable_charger"
+  }
+}

@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " I ",
-    "INI",
-    " I "
+    " N ",
+    "NPN",
+    " N "
   ],
   "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
     "N": {
-      "item": "minecraft:nether_star"
+      "item": "neoarsenal:neo_bar"
+    },
+    "P": {
+      "item": "neoarsenal:processor"
     }
   },
   "result": {

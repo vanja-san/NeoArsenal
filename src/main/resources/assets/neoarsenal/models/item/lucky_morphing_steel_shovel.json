@@ -1,6 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "neoarsenal:item/lucky_morphing_steel_shovel"
-  }
-}

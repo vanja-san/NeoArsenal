@@ -14,32 +14,26 @@ import java.util.Set;
 public interface IItemTraitHandler {
 
     /**
-     *
-     * @return
-     *          Whether the stack has traits.
+     * @return Whether the stack has traits.
      */
     boolean hasTraits(ItemStack stack);
 
     /**
-     *
-     * @return
-     *          The NBT tag storing the stack's traits.
+     * @return The NBT tag storing the stack's traits.
      */
     CompoundNBT getTraitsTag(ItemStack stack);
 
     /**
      * Adds a trait to a stack.
      *
-     * @param identifier
-     *          The trait's name.
+     * @param identifier The trait's name.
      */
     void addTrait(ItemStack stack, String identifier);
 
     /**
      * Adds a Set of traits to a stack all at once.
      *
-     * @param identifiers
-     *          The set of trait identifiers (names) to iterate.
+     * @param identifiers The set of trait identifiers (names) to iterate.
      */
     void addAll(ItemStack stack, Set<String> identifiers);
 
@@ -51,8 +45,7 @@ public interface IItemTraitHandler {
     /**
      * Initializes a stack with a Set of traits.
      *
-     * @param withDefault
-     *              Whether to include the default trait
+     * @param withDefault Whether to include the default trait
      */
     void initialize(ItemStack stack, Set<String> identifiers, boolean withDefault);
 

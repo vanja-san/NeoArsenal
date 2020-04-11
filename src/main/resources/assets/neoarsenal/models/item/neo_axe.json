@@ -1,0 +1,38 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "neoarsenal:item/neo_axe"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "neoarsenal:trait": 1.0
+      },
+      "model": "neoarsenal:item/deadly_neo_axe"
+    },
+    {
+      "predicate": {
+        "neoarsenal:trait": 2.0
+      },
+      "model": "neoarsenal:item/silky_neo_axe"
+    },
+    {
+      "predicate": {
+        "neoarsenal:trait": 3.0
+      },
+      "model": "neoarsenal:item/lucky_neo_axe"
+    },
+    {
+      "predicate": {
+        "neoarsenal:trait": 4.0
+      },
+      "model": "neoarsenal:item/incendiary_neo_axe"
+    },
+    {
+      "predicate": {
+        "neoarsenal:trait": 5.0
+      },
+      "model": "neoarsenal:item/efficient_neo_axe"
+    }
+  ]
+}

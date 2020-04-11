@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "neoarsenal:item/incendiary_neo_sword"
+  }
+}

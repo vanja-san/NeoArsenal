@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "blank_sheet",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "neoarsenal:blank_slip"
+    }
+  },
+  "result": {
+    "item": "neoarsenal:blank_sheet"
+  }
+}

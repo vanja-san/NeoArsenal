@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "neoarsenal:item/massive_neo_pickaxe"
+  }
+}

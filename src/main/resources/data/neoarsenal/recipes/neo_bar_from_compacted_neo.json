@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "neo_bar",
+  "ingredients": [
+    {
+      "item": "neoarsenal:compacted_neo"
+    }
+  ],
+  "result": {
+    "item": "neoarsenal:neo_bar",
+    "count": 4
+  }
+}

@@ -10,14 +10,18 @@ public class Network {
     public static SimpleChannel INSTANCE;
     private static int ID = 0;
 
-    public static int nextID() { return ID++; }
+    public static int nextID() {
+        return ID++;
+    }
 
     public static void registerMessages() {
         INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(NeoArsenal.MOD_ID, "neoarsenal_network"), () -> "1.0", s -> true, s -> true);
         INSTANCE.registerMessage(nextID(), SyncTraitsPacket.class, SyncTraitsPacket::toBytes, SyncTraitsPacket::new, SyncTraitsPacket::handle);
     }
 
-    public static SimpleChannel getInstance() { return INSTANCE; }
+    public static SimpleChannel getInstance() {
+        return INSTANCE;
+    }
 
 
 }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "neo_bar",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "neoarsenal:neo_chunk"
+    }
+  },
+  "result": {
+    "item": "neoarsenal:neo_bar"
+  }
+}
