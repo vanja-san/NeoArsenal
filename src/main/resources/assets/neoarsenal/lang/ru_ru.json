@@ -1,0 +1,32 @@
+{
+  "key.categories.neoarsenal": "Арсенал Neo",
+  "neoarsenal.key.cycleTraits": "Черты цикла",
+  "neoarsenal.subtitle.cycle_trait": "Инструмент Neo меняет черту",
+  "neoarsenal.subtitle.cycle_mode": "Переносное зарядное устройство меняющее режим работы",
+  "neoarsenal.subtitle.cycle_denied": "Цикл не удался",
+  "neoarsenal.subtitle.add_trait": "Черта добавлена к инструменту",
+  "neoarsenal.subtitle.add_trait_denied": "Черта отрицается",
+  "itemGroup.neoarsenal": "Арсенал Neo",
+
+  "item.neoarsenal.neo_bar": "Панель Neo",
+  "item.neoarsenal.neo_chunk": "Кусок Neo",
+  "item.neoarsenal.neo_nugget": "Самородок Neo",
+  "item.neoarsenal.neo_rod": "Стержень Neo",
+  "item.neoarsenal.processor": "Переработчик",
+  "item.neoarsenal.fabricator": "Изготовитель",
+  "item.neoarsenal.tool_core": "Ядро инструмента",
+  "item.neoarsenal.trait_analyzer": "Анализатор черты",
+  "item.neoarsenal.incendiary_eye": "Зажигательный глаз",
+  "item.neoarsenal.portable_charger": "Переносное зарядное устройство",
+  "item.neoarsenal.neo_sword": "Меч Neo",
+  "item.neoarsenal.neo_pickaxe": "Кирка Neo",
+  "item.neoarsenal.neo_axe": "Топор Neo",
+  "item.neoarsenal.neo_shovel": "Лопата Neo",
+  "item.neoarsenal.blank_sheet": "Пустой лист",
+  "item.neoarsenal.blank_slip": "Пустой слип",
+  "item.neoarsenal.tool_schematic": "Схема инструмента",
+  "item.neoarsenal.upgrade_schematic": "Схема улучшения",
+
+  "block.neoarsenal.neo_ore": "Руда Neo",
+  "block.neoarsenal.compacted_neo": "Уплотнённый Neo"
+}
