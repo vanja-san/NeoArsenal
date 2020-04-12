@@ -4,7 +4,7 @@ loaderVersion="[28,)"
 
 [[mods]]
 modId="neoarsenal"
-version="1.0.0"
+version="1.1.1"
 mcversion= "1.14,"
 displayName="NeoArsenal"
 # displayURL=""
