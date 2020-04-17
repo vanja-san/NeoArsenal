@@ -10,7 +10,7 @@ displayName="NeoArsenal"
 # displayURL=""
 authors="Zorochase"
 description='''
-A mod adding trait-swapping tools, FE-based machines and other utilities.
+A new arsenal for modern Minecraft.
 '''
 
 [[dependencies.neoarsenal]]

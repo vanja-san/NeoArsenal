@@ -62,13 +62,13 @@ public class UpgradeSchematicItem extends SchematicItem {
         CycledTraitHandler cycledTraitHandler = new CycledTraitHandler();
 
         if (!ItemStack.areItemsEqual(main, playerIn.getHeldItemMainhand())) {
-            playerIn.sendStatusMessage(loreString("Hold the schematic in your MAIN hand!", TextFormatting.RED), true);
+            playerIn.sendStatusMessage(loreString("neoarsenal.lore.upgrade_schematic_wrong_hand", TextFormatting.RED), true);
             playerIn.playSound(ModSoundEvents.ADD_TRAIT_DENIED, 1.0F, 1.0F);
             return new ActionResult<>(ActionResultType.FAIL, main);
         }
 
         if (!main.hasTag()) {
-            playerIn.sendStatusMessage(loreString("This schematic is empty!", TextFormatting.RED), true);
+            playerIn.sendStatusMessage(loreString("neoarsenal.lore.empty_schematic", TextFormatting.RED), true);
             playerIn.playSound(ModSoundEvents.ADD_TRAIT_DENIED, 1.0F, 1.0F);
             return new ActionResult<>(ActionResultType.FAIL, main);
         }
@@ -77,17 +77,17 @@ public class UpgradeSchematicItem extends SchematicItem {
             if (cycledTraitHandler.toolSupportsTrait(off, main.getOrCreateTag().getString(TAG))) {
                 if (!cycledTraitHandler.getTraitsTag(off).contains(main.getOrCreateTag().getString(TAG), Constants.NBT.TAG_INT)) {
                     cycledTraitHandler.addTrait(off, main.getOrCreateTag().getString(TAG));
-                    playerIn.sendStatusMessage(loreString("Applied trait: " + main.getOrCreateTag().getString(TAG), TextFormatting.AQUA), true);
+                    playerIn.sendStatusMessage(loreString("neoarsenal.lore.applied_trait" + main.getOrCreateTag().getString(TAG), TextFormatting.AQUA), true);
                     playerIn.playSound(ModSoundEvents.ADD_TRAIT, 1.0F, 1.0F);
                     playerIn.inventory.deleteStack(main);
                     return new ActionResult<>(ActionResultType.SUCCESS, main);
                 } else {
-                    playerIn.sendStatusMessage(loreString("That tool already has that trait!", TextFormatting.RED), true);
+                    playerIn.sendStatusMessage(loreString("neoarsenal.lore.tool_already_has_trait", TextFormatting.RED), true);
                     playerIn.playSound(ModSoundEvents.ADD_TRAIT_DENIED, 1.0F, 1.0F);
                 }
             } else {
                 if (!(off.getItem() instanceof PortableChargerItem)) {
-                    playerIn.sendStatusMessage(loreString("That trait is not supported by that tool!", TextFormatting.RED), true);
+                    playerIn.sendStatusMessage(loreString("neoarsenal.lore.trait_unsupported", TextFormatting.RED), true);
                     playerIn.playSound(ModSoundEvents.ADD_TRAIT_DENIED, 1.0F, 1.0F);
                 }
             }
@@ -98,6 +98,6 @@ public class UpgradeSchematicItem extends SchematicItem {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (!stack.getOrCreateTag().contains(TAG, Constants.NBT.TAG_STRING)) return;
-        tooltip.add(loreString("Trait to apply: ").appendSibling(loreString(stack.getOrCreateTag().getString(TAG), TextFormatting.AQUA)));
+        tooltip.add(loreString("neoarsenal.lore.trait_to_apply").appendSibling(loreString("neoarsenal.trait." + stack.getOrCreateTag().getString(TAG).toLowerCase(), TextFormatting.AQUA)));
     }
 }

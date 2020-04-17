@@ -39,12 +39,12 @@ public class ClientEventSubscriber {
     private static void cycleTraits(ItemStack stack, PlayerEntity player) {
         CycledTraitHandler cycledTraitHandler = new CycledTraitHandler();
         SoundEvent sound = stack.getItem() instanceof PortableChargerItem ? ModSoundEvents.CYCLE_MODES : ModSoundEvents.CYCLE_TRAITS;
-        String title = stack.getItem() instanceof PortableChargerItem ? "Mode: " : "Trait: ";
+        String title = "neoarsenal.lore." + (stack.getItem() instanceof PortableChargerItem ? "mode" : "trait");
         if (cycledTraitHandler.getCooldown(stack) == 0) {
             cycledTraitHandler.iterateActiveTraitIndex(stack);
             cycledTraitHandler.setEnchantmentsForTrait(stack);
             player.playSound(sound, 1.0F, 2.0F);
-            player.sendStatusMessage(LoreHelper.loreString(title + cycledTraitHandler.getActiveTraitIdentifier(stack), TextFormatting.AQUA), true);
+            player.sendStatusMessage(LoreHelper.activeTrait(stack, cycledTraitHandler, title), true);
             cycledTraitHandler.setCooldown(stack, 20);
         }
     }

@@ -175,14 +175,15 @@ public class PortableChargerItem extends Item {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (CapabilityEnergy.ENERGY == null) return;
+        if (Minecraft.getInstance().player == null) return;
 
         LazyOptional<IEnergyStorage> lazy = stack.getCapability(CapabilityEnergy.ENERGY);
         if (lazy.isPresent()) {
             tooltip.add(chargeRatio(stack));
             tooltip.add(newLine());
-            tooltip.add(activeTrait(stack, cycledTraitHandler, "Mode: "));
-            tooltip.add(loreString("Burn time: ").appendSibling(loreInt(cycledTraitHandler.getCooldown(stack, BURN_TIME_TAG))));
-            tooltip.add(loreString("Items to charge: ").appendSibling(loreInt(getCountToCharge(Minecraft.getInstance().player.inventory))));
+            tooltip.add(activeTrait(stack, cycledTraitHandler, "neoarsenal.lore.mode"));
+            tooltip.add(loreString("neoarsenal.lore.burn_time").appendSibling(loreInt(cycledTraitHandler.getCooldown(stack, BURN_TIME_TAG))));
+            tooltip.add(loreString("neoarsenal.lore.items_to_charge").appendSibling(loreInt(getCountToCharge(Minecraft.getInstance().player.inventory))));
 
         }
     }

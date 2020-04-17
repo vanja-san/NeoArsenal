@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
@@ -55,7 +56,6 @@ class NeoToolCommon {
         if (attacker instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) attacker;
             if (!player.isCreative()) {
-                stack.getOrCreateTag().putInt("JustHitEntity", 1);
                 cycledTraitHandler.setCooldown(stack, 20);
                 LazyOptional<IEnergyStorage> lazy = stack.getCapability(CapabilityEnergy.ENERGY);
                 if (lazy.isPresent()) {
@@ -98,23 +98,25 @@ class NeoToolCommon {
             IEnergyStorage storage = lazy.orElseThrow(AssertionError::new);
             tooltip.add(chargeRatio(stack));
             if (storage.getEnergyStored() == 0) {
-                tooltip.add(loreString("No energy stored! Energy is required to be useful!", TextFormatting.RED));
+                tooltip.add(loreString("neoarsenal.lore.no_energy_stored", TextFormatting.RED));
             }
             tooltip.add(newLine());
         }
         if (cycledTraitHandler.hasTraits(stack)) {
             if (cycledTraitHandler.getActiveTraitIdentifier(stack).equals(NeoArsenalTraits.NONE.getIdentifier())) {
-                tooltip.add(loreString("No trait currently applied...", TextFormatting.GRAY));
+                tooltip.add(loreString("neoarsenal.lore.no_trait_applied", TextFormatting.GRAY));
                 if (cycledTraitHandler.getTraitsTag(stack).size() < 2) {
-                    tooltip.add(loreString("Tip: you'll need a Upgrade Schematic to add a trait!", TextFormatting.DARK_GRAY));
+                    tooltip.add(loreString("neoarsenal.lore.upgrade_schematic_tip", TextFormatting.DARK_GRAY));
                 } else {
-                    tooltip.add(loreString("Available traits: "));
+                    tooltip.add(loreString("neoarsenal.lore.available_traits"));
                     for (String s : cycledTraitHandler.getTraitsTag(stack).keySet()) {
-                        if (!s.equals(NeoArsenalTraits.NONE.getIdentifier())) tooltip.add(loreString(" - " + s));
+                        if (!s.equals(NeoArsenalTraits.NONE.getIdentifier())) {
+                            tooltip.add(loreString(" - ").appendSibling(loreString("neoarsenal.trait." + s.toLowerCase())));
+                        }
                     }
                 }
             } else {
-                tooltip.add(activeTrait(stack, cycledTraitHandler, "Trait applied: "));
+                tooltip.add(activeTrait(stack, cycledTraitHandler, "neoarsenal.lore.trait_applied"));
             }
         }
     }

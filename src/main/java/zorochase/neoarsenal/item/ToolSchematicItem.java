@@ -54,6 +54,6 @@ public class ToolSchematicItem extends SchematicItem {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (!stack.getOrCreateTag().contains(TAG, Constants.NBT.TAG_STRING)) return;
-        tooltip.add(loreString("Crafts: ").appendSibling(loreString(stack.getOrCreateTag().getString(TAG), TextFormatting.AQUA)));
+        tooltip.add(loreString("neoarsenal.lore.tool_schematic_type").appendSibling(loreString("neoarsenal.tooltype." + stack.getOrCreateTag().getString(TAG).toLowerCase(), TextFormatting.AQUA)));
     }
 }

@@ -48,6 +48,6 @@ public class LoreHelper {
     }
 
     public static ITextComponent activeTrait(ItemStack stack, CycledTraitHandler cycledTraitHandler, String flavor) {
-        return loreString(flavor).appendSibling(loreString(cycledTraitHandler.getActiveTraitIdentifier(stack), TextFormatting.AQUA));
+        return loreString(flavor).appendSibling(loreString("neoarsenal.trait." + cycledTraitHandler.getActiveTraitIdentifier(stack).toLowerCase(), TextFormatting.AQUA));
     }
 }
