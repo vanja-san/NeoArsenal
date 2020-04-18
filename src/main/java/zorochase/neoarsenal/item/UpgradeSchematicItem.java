@@ -77,7 +77,7 @@ public class UpgradeSchematicItem extends SchematicItem {
             if (cycledTraitHandler.toolSupportsTrait(off, main.getOrCreateTag().getString(TAG))) {
                 if (!cycledTraitHandler.getTraitsTag(off).contains(main.getOrCreateTag().getString(TAG), Constants.NBT.TAG_INT)) {
                     cycledTraitHandler.addTrait(off, main.getOrCreateTag().getString(TAG));
-                    playerIn.sendStatusMessage(loreString("neoarsenal.lore.applied_trait" + main.getOrCreateTag().getString(TAG), TextFormatting.AQUA), true);
+                    playerIn.sendStatusMessage(loreString("neoarsenal.lore.applied_trait").appendSibling(loreString("neoarsenal.trait." + main.getOrCreateTag().getString(TAG).toLowerCase(), TextFormatting.AQUA)), true);
                     playerIn.playSound(ModSoundEvents.ADD_TRAIT, 1.0F, 1.0F);
                     playerIn.inventory.deleteStack(main);
                     return new ActionResult<>(ActionResultType.SUCCESS, main);
