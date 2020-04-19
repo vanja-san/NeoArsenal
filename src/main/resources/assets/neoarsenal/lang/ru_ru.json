@@ -57,6 +57,6 @@
   "item.neoarsenal.tool_schematic": "Схема инструмента",
   "item.neoarsenal.upgrade_schematic": "Схема улучшения",
 
-  "block.neoarsenal.neo_ore": "Нео руда",
-  "block.neoarsenal.compacted_neo": "Уплотнённый нео"
+  "block.neoarsenal.neo_ore": "Руда Нео",
+  "block.neoarsenal.compacted_neo": "Уплотнённый Нео"
 }
